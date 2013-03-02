@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+# TODO: Do this properly
+
 import os
 import sys
 

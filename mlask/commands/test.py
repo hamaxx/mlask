@@ -1,6 +1,5 @@
 import os
 import sys
-import coverage
 import unittest
 import importlib
 import inspect
@@ -33,6 +32,11 @@ class Test(BaseCommand):
 
 	def coverage_start(self, options):
 		if options.coverage:
+			try:
+				import coverage
+			except ImportError:
+				raise ImportError('To use --coverage install coverage.py package')
+
 			self._coverage = coverage.coverage()
 			self._coverage.start()
 

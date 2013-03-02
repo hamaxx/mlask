@@ -26,7 +26,10 @@ class RunGunicorn(BaseCommand):
 		parser.add_argument('--workers', type=int, default=(conf.SERVER['workers'] if 'workers' in conf.SERVER else 1))
 
 	def run(self, options):
-		from gunicorn.app.base import Application
+		try:
+			from gunicorn.app.base import Application
+		except ImportError:
+			raise ImportError('To use rungunicorn install gunicorn package')
 
 		class WSGIServer(Application):
 			def init(self, parser, opts, args):
