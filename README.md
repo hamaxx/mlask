@@ -1,4 +1,7 @@
 mlask
 =====
 
-manage.py for Flask
+Mlask brings a bit of django like structure to Flask apps.
+
+Proper readme comming soon :)
+---
