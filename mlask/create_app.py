@@ -25,7 +25,7 @@ SERVER = {
 	'debug': True,
 	'workers': 1,
 }
-""" % (app_name, app_name),
+""" % (app_name, app_name, app_name),
 	'views.py': """
 # Define you views here
 """,
