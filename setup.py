@@ -6,7 +6,7 @@ setup(name='Mlask',
 		author='Jure Ham',
 		author_email = 'jure.ham@zemanta.com',
 		license = "BSD",
-		packages=['mlask'] + [ 'mlask.%s' % package for package in find_packages('mlask') ],
+		packages = find_packages(),
 		scripts = ['mlask/bin/mlask-admin.py'],
 
 		install_requires=[
