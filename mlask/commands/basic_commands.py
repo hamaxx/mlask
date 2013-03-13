@@ -7,6 +7,7 @@ from mlask import conf
 from flask import current_app as app
 
 import mlask.commands.test
+import mlask.commands.startapp
 
 class RunServer(BaseCommand):
 	def update_parser(self, parser):

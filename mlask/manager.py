@@ -11,7 +11,7 @@ def init_service():
 		mod = importlib.import_module(conf.SERVICE_MODULE)
 		app = mod.app
 	else:
-		app = Flask(conf.SERVICE_NAME or __name__ )
+		app = Flask(getattr(conf, 'SERVICE_MODULE', 'flask'))
 
 	if hasattr(conf, 'MODULES'):
 		with app.app_context():
