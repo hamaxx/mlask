@@ -1,7 +1,7 @@
 import sys
 import argparse
 
-from mlask.commands import BaseCommand
+from mlask.management.commands import BaseCommand
 
 import mlask.management.commands.basic_commands
 import mlask.management.commands.test

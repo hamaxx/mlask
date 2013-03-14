@@ -3,7 +3,7 @@ import importlib
 from flask import Flask
 
 from mlask import conf
-from mlask.commands import input_parser
+from mlask.management import input_parser
 
 
 def init_service():
