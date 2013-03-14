@@ -81,5 +81,7 @@ class RunModule(BaseCommand):
 
 class SyncDB(BaseCommand):
 	def run(self, options):
-		from mlask.db import sql
-		sql.init_db()
+		from flask.ext.sqlalchemy import SQLAlchemy
+
+		db = SQLAlchemy(app)
+		db.create_all()
