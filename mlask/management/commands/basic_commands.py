@@ -45,10 +45,22 @@ class RunGunicorn(BaseCommand):
 
 class Shell(BaseCommand):
 	def run(self, options):
-		vars = globals().copy()
-		vars.update(locals())
-		shell = code.InteractiveConsole(vars)
-		shell.interact()
+		vars = {'conf': conf, 'app': app}
+
+		try:
+			import readline
+		except ImportError:
+			print "Please install readline to enable command line editing."
+		else:
+			import rlcompleter
+			readline.set_completer(rlcompleter.Completer(vars).complete)
+			if 'libedit' in readline.__doc__:
+				readline.parse_and_bind("bind ^I rl_complete")
+			else:
+				readline.parse_and_bind("tab:complete")
+
+		code.interact(local=vars)
+
 
 
 class RunModule(BaseCommand):
