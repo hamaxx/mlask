@@ -1,13 +1,10 @@
 import sys
 import code
 
-from mlask.commands import BaseCommand
+from mlask.management.commands import BaseCommand
 from mlask import conf
 
 from flask import current_app as app
-
-import mlask.commands.test
-import mlask.commands.startapp
 
 class RunServer(BaseCommand):
 	def update_parser(self, parser):

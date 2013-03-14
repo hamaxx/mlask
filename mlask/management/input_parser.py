@@ -2,7 +2,11 @@ import sys
 import argparse
 
 from mlask.commands import BaseCommand
-from mlask.commands import basic_commands
+
+import mlask.management.commands.basic_commands
+import mlask.management.commands.test
+import mlask.management.commands.startapp
+
 
 _commands = {}
 _parser = None

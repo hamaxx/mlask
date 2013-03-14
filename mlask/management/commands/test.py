@@ -4,7 +4,7 @@ import unittest
 import importlib
 import inspect
 
-from mlask.commands import BaseCommand
+from mlask.management.commands import BaseCommand
 from mlask import conf
 
 class Test(BaseCommand):

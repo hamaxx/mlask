@@ -1,6 +1,6 @@
 import os
 
-from mlask.commands import BaseCommand
+from mlask.management.commands import BaseCommand
 
 class StartApp(BaseCommand):
 	__command_name__ = 'startapp'
