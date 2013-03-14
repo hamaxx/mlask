@@ -62,23 +62,6 @@ class Shell(BaseCommand):
 		code.interact(local=vars)
 
 
-
-class RunModule(BaseCommand):
-	# deprecated - register custom commands by extending BaseCommand class
-
-	__command_name__ = 'run'
-	__help__ = 'runs a custom command located in commands folder (load a defined module in app\'s context)'
-
-	def update_parser(self, parser):
-		parser.add_argument('command', help="Command to run")
-		parser.add_argument('args', nargs="*", help="Passed to command")
-
-	def run(self, options):
-		import importlib
-		mod = importlib.import_module('commands.' + options.command)
-		mod.run(options.args)
-
-
 class SyncDB(BaseCommand):
 	def run(self, options):
 		from flask.ext.sqlalchemy import SQLAlchemy
