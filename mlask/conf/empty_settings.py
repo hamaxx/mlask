@@ -1,3 +1,5 @@
+import os
+
 SERVER = {
 	'host': 'localhost',
 	'port': 5000,
@@ -20,3 +22,5 @@ DATABASE_TEST = {
 }
 
 RUNNING_TESTS = False
+
+MLASK_HOME_PATH = os.path.join(os.path.dirname(__file__), '../')
