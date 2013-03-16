@@ -8,6 +8,8 @@ from mlask.management.commands import BaseCommand
 from mlask import conf
 
 class Test(BaseCommand):
+	__help__ = 'Runs all test in "TEST_MODULES"'
+
 	_coverage = None
 
 	def update_parser(self, parser):

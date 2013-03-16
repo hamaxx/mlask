@@ -5,7 +5,7 @@ from mlask import conf
 
 class StartApp(BaseCommand):
 	__command_name__ = 'startapp'
-	__help__ = 'Creates an app direcory structure for the given app name in the current directory.'
+	__help__ = 'Creates an app direcory structure for the given app name in the current directory'
 
 	def update_parser(self, parser):
 		parser.add_argument('appname', help="Name of the app")

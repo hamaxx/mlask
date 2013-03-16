@@ -7,6 +7,8 @@ from mlask import conf
 from flask import current_app as app
 
 class RunServer(BaseCommand):
+	__help__ = 'Starts testing server'
+
 	def update_parser(self, parser):
 		parser.add_argument('--host', type=str, default=conf.SERVER['host'])
 		parser.add_argument('--port', type=int, default=conf.SERVER['port'])
@@ -17,6 +19,8 @@ class RunServer(BaseCommand):
 
 
 class RunGunicorn(BaseCommand):
+	__help__ = 'Starts Gunicorn server'
+
 	def update_parser(self, parser):
 		parser.add_argument('--logfile', type=str, default=getattr(conf, 'GUNICORN_LOG_FILE', 'gunicorn.log'))
 		parser.add_argument('--host', type=str, default=conf.SERVER['host'])
@@ -44,6 +48,8 @@ class RunGunicorn(BaseCommand):
 
 
 class Shell(BaseCommand):
+	__help__ = 'Starts interactive shell with defined "app" and "conf" vars'
+
 	def run(self, options):
 		vars = {'conf': conf, 'app': app}
 
@@ -63,6 +69,8 @@ class Shell(BaseCommand):
 
 
 class SyncDB(BaseCommand):
+	__help__ = 'Creates all tables defined by SQLAlchemy declarative'
+
 	def run(self, options):
 		from flask.ext.sqlalchemy import SQLAlchemy
 
