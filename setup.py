@@ -98,7 +98,7 @@ setup(name='Mlask',
 		long_description=__doc__,
 		url='https://github.com/hamaxx/mlask',
 		license="BSD",
-		packages=['mlask', 'mlask.bin', 'mlask.conf', 'mlask.management'],
+		packages=['mlask', 'mlask.bin', 'mlask.conf', 'mlask.management', 'mlask.management.commands'],
 		scripts=['mlask/bin/mlask-admin.py'],
 		install_requires=[
 			'Flask',
