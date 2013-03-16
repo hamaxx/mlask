@@ -16,6 +16,7 @@ Create your first app:
 ----------------------
 
 To create the skeleton run:
+
 	mlask-admin.py startapp your_apps_name
 
 This command will create a folder named your\_apps\_name with the following files:
@@ -27,9 +28,11 @@ This command will create a folder named your\_apps\_name with the following file
 For the "hello world" examples check "views.py" and "tests.py".
 
 When you're ok with your first app, start the testing server by running:
+
 	python manage.py runserver
 
 Then run the tests I'm sure you've written:
+
 	python manage.py test
 
 Edit "settings.py" to change server settings, add aditional modules to your app and to define your own settings.
@@ -71,4 +74,5 @@ Create a file mycommands.py with the following content:
 			print options.text
 
 Add "your\_apps\_name.mycommands" module to settings.py "MODULES" and test it out by running:
+
 	python manage.py example "Hello"
