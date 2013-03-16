@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
-from mlask import manager
+from mlask import management
 
 if __name__ == "__main__":
-	manager.execute()
-
+	management.execute()
