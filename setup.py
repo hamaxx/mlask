@@ -10,9 +10,7 @@ Installation:
 
 ::
 
-    clone the repository
-    cd mlask
-    python setup.py install
+    pip install mlask
 
 Create your first app:
 ----------------------

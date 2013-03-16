@@ -7,6 +7,10 @@ Mlask brings a bit of django like structure to [Flask](http://flask.pocoo.org/) 
 Installation:
 ------------
 
+	pip install mlask
+
+or
+
 	clone the repository
 	cd mlask
 	python setup.py install
