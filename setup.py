@@ -90,7 +90,7 @@ test it out by running:
 """
 
 
-from setuptools import setup, find_packages
+from setuptools import setup
 
 setup(name='Mlask',
 		version='0.1',
@@ -100,9 +100,12 @@ setup(name='Mlask',
 		long_description=__doc__,
 		url='https://github.com/hamaxx/mlask',
 		license="BSD",
-		packages=find_packages(),
+		packages=['mlask', 'mlask.bin', 'mlask.conf', 'mlask.management'],
 		scripts=['mlask/bin/mlask-admin.py'],
 		install_requires=[
 			'Flask',
+		],
+		classifiers=[
+			'Development Status :: 4 - Beta',
 		],
 	)
