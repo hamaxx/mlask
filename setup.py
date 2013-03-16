@@ -22,7 +22,12 @@ To create the skeleton run:
     mlask-admin.py startapp your_apps_name
 
 This command will create a folder named your_apps_name with the
-following files: \* manage.py \* settings.py \* tests.py \* views.py
+following files:
+
+* manage.py
+* settings.py
+* tests.py
+* views.py
 
 For the "hello world" examples check "views.py" and "tests.py".
 
@@ -54,8 +59,8 @@ All built in commands:
     rungunicorn     Starts Gunicorn server
     shell           Starts interactive shell with defined "app" and "conf" vars
     syncdb          Creates all tables defined by SQLAlchemy declarative
-    test            Runs all test in "TEST_MODULES"
-    startapp        Creates an app direcory structure for the given app name in the current directory.
+    test            Runs all tests in "settings.TEST_MODULES"
+    startapp        Creates an app direcory structure for the given app name in the current directory
 
 Define your own command:
 ------------------------
@@ -92,7 +97,7 @@ from setuptools import setup
 
 setup(name='Mlask',
 		version='0.1',
-		description='Mlask - manage.py for Flask',
+		description='Mlask, manage.py for Flask',
 		author='Jure Ham',
 		author_email='jure.ham@zemanta.com',
 		long_description=__doc__,

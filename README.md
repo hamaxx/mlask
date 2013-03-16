@@ -51,8 +51,8 @@ All built in commands:
 	rungunicorn		Starts Gunicorn server
 	shell			Starts interactive shell with defined "app" and "conf" vars
 	syncdb			Creates all tables defined by SQLAlchemy declarative
-	test			Runs all test in "TEST_MODULES"
-	startapp		Creates an app direcory structure for the given app name in the current directory.
+	test			Runs all tests in "settings.TEST_MODULES"
+	startapp		Creates an app direcory structure for the given app name in the current directory
 
 
 Define your own command:
