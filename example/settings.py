@@ -8,5 +8,5 @@ SERVER = {
 	'host': 'localhost',
 	'port': 5000,
 	'debug': True,
-	'workers': 1,
+	'workers': 1, # used only for rungunicorn
 }
