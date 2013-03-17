@@ -97,7 +97,7 @@ from setuptools import setup
 
 setup(name='Mlask',
 		version='0.1',
-		description='Mlask, manage.py for Flask',
+		description='manage.py for Flask',
 		author='Jure Ham',
 		author_email='jure.ham@zemanta.com',
 		long_description=__doc__,
