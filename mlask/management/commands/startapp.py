@@ -1,7 +1,8 @@
 import os
 
 from mlask.management.commands import BaseCommand
-from mlask import conf
+
+from flask import current_app as app
 
 class StartApp(BaseCommand):
 	__command_name__ = 'startapp'
@@ -17,7 +18,7 @@ class StartApp(BaseCommand):
 		app_dir = os.path.join(location, app_name)
 		os.makedirs(app_dir)
 
-		template_dir = os.path.join(conf.MLASK_HOME_PATH, 'conf/empty_app/')
+		template_dir = os.path.join(app.config.MLASK_HOME_PATH, 'conf/empty_app/')
 
 		app_name_tag = '{{ empty_app }}'
 

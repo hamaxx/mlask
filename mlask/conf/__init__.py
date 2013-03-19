@@ -1,33 +1,24 @@
 import os
-import importlib
 
-_initialized = False
-_settings_module = None
+from flask import Config
 
-def parse(setts):
-	# django does the same thing
-	for setting in dir(setts):
-		if setting == setting.upper():
-			setting_value = getattr(setts, setting)
-			globals()[setting] = setting_value
+def _flask_config_getattr(self, attr):
+	"""Expose flask config keys as attributes"""
 
-def init():
-	global _initialized, _settings_module
+	try:
+		return self[attr]
+	except KeyError:
+		raise AttributeError("AttributeError: '%s' object has no attribute '%s'" % (self.__class__.__name__, attr))
 
-	from mlask.conf import empty_settings
-	parse(empty_settings)
+def init(app):
+	"""Initialize mlask and flask config."""
 
-	if "RLIBS_SETTINGS_MODULE" in os.environ:
-		setts = importlib.import_module(os.environ["RLIBS_SETTINGS_MODULE"])
-		_settings_module = setts
-		parse(setts)
+	Config.__getattr__ = _flask_config_getattr
 
-	_initialized = True
+	app.config.from_object('mlask.conf.empty_config')
 
-def clear():
-	for setting in globals():
-		if setting == setting.upper():
-			globals()[setting] = None
+	if "MLASK_CONFIG_MODULE" in os.environ:
+		app.config.from_object(os.environ["MLASK_CONFIG_MODULE"])
 
-if not _initialized:
-	init()
+	for conf_module in app.config.CONFIG_MODULES:
+		app.config.from_object(os.environ["MLASK_CONFIG_MODULE"])

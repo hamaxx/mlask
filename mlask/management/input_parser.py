@@ -11,7 +11,7 @@ import mlask.management.commands.startapp
 _commands = {}
 _parser = None
 
-def load_commands():
+def load_commands(app):
 	global _parser
 
 	_parser = argparse.ArgumentParser(description='Manage flask app.')
@@ -19,9 +19,10 @@ def load_commands():
 
 	command_classes = BaseCommand.__subclasses__()
 	for CommandClass in command_classes:
-		c = CommandClass(subparsers)
-		c.load()
-		_commands[c.__command_name__] = c
+		with app.app_context():
+			c = CommandClass(subparsers)
+			c.load()
+			_commands[c.__command_name__] = c
 
 def run_command(app):
 	inp = _parser.parse_args(sys.argv[1:])

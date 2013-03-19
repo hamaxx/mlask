@@ -3,7 +3,7 @@
 import os, sys
 
 sys.path.append(os.path.join(os.path.dirname(__file__), os.path.pardir))
-os.environ.setdefault("RLIBS_SETTINGS_MODULE", "example.settings")
+os.environ.setdefault("MLASK_SETTINGS_MODULE", "example.settings")
 
 from mlask import management
 

@@ -5,7 +5,8 @@ import importlib
 import inspect
 
 from mlask.management.commands import BaseCommand
-from mlask import conf
+
+from flask import current_app as app
 
 class Test(BaseCommand):
 	__help__ = 'Runs all test in "TEST_MODULES"'
@@ -18,19 +19,20 @@ class Test(BaseCommand):
 		parser.add_argument('--htmlreport', action='store_true', default=False, help="export code coverage report as html")
 
 	def find_project_files(self):
-		# TODO: Use conf.TEST_MODULES to determine project files
+		# TODO: Use app.config.TEST_MODULES to determine project files
 
-		if not conf._settings_module:
-			return None
+		return None
 
+		"""
 		pyfiles = []
-		basedir = os.path.dirname(conf._settings_module.__file__)
+		basedir = os.path.dirname(app.config._settings_module.__file__)
 		for r,d,f in os.walk(basedir):
 			for files in f:
 				if files.endswith(".py"):
 					pyfiles.append(os.path.abspath(os.path.join(r,files)))
 
 		return pyfiles
+		"""
 
 	def coverage_start(self, options):
 		if options.coverage:
@@ -52,7 +54,7 @@ class Test(BaseCommand):
 			self._coverage.html_report(directory="coverage_report", include=project_files)
 
 	def load(self):
-		conf.RUNNING_TESTS = True
+		app.config.TESTING = True
 
 	def _find_subclasses(self, module, clazz):
 		return [ cls for name, cls in inspect.getmembers(module) if inspect.isclass(cls) and issubclass(cls, clazz) ]
@@ -74,8 +76,8 @@ class Test(BaseCommand):
 		test_loader = unittest.defaultTestLoader
 
 		test_suites = []
-		if hasattr(conf, 'TEST_MODULES'):
-			for module in conf.TEST_MODULES:
+		if hasattr(app.config, 'TEST_MODULES'):
+			for module in app.config.TEST_MODULES:
 				tmod = importlib.import_module(module)
 
 				try:
