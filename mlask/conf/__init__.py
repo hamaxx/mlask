@@ -2,6 +2,7 @@ import os
 
 from flask import Config
 
+
 def _flask_config_getattr(self, attr):
 	"""Expose flask config keys as attributes"""
 
@@ -9,6 +10,7 @@ def _flask_config_getattr(self, attr):
 		return self[attr]
 	except KeyError:
 		raise AttributeError("AttributeError: '%s' object has no attribute '%s'" % (self.__class__.__name__, attr))
+
 
 def init(app):
 	"""Initialize mlask and flask config."""

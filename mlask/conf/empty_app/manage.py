@@ -3,7 +3,7 @@
 import os, sys
 
 sys.path.append(os.path.join(os.path.dirname(__file__), os.path.pardir))
-os.environ.setdefault("MLASK_SETTINGS_MODULE", "{{ empty_app }}.settings")
+os.environ.setdefault("MLASK_CONFIG_MODULE", "{{ empty_app }}.config")
 
 from mlask import management
 
