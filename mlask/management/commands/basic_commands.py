@@ -47,7 +47,7 @@ class RunGunicorn(BaseCommand):
 
 
 class Shell(BaseCommand):
-	__help__ = 'Starts interactive shell with defined "app" and "app.config" vars'
+	__help__ = 'Starts interactive shell with defined app'
 
 	def run(self, options):
 		vars = {'app': app}
