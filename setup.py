@@ -96,19 +96,19 @@ test it out by running:
 from setuptools import setup
 
 setup(name='Mlask',
-		version='0.1',
+		version='0.1.1',
 		description='manage.py for Flask',
 		author='Jure Ham',
 		author_email='jure.ham@zemanta.com',
 		long_description=__doc__,
 		url='https://github.com/hamaxx/mlask',
 		license="BSD",
-		packages=['mlask', 'mlask.bin', 'mlask.conf', 'mlask.management', 'mlask.management.commands'],
+		packages=['mlask', 'mlask.bin', 'mlask.conf', 'mlask.conf.empty_app', 'mlask.management', 'mlask.management.commands'],
 		scripts=['mlask/bin/mlask-admin.py'],
 		install_requires=[
 			'Flask',
 		],
 		classifiers=[
-			'Development Status :: 4 - Beta',
+			'Development Status :: 3 - Alpha',
 		],
 	)
